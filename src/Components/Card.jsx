@@ -1,21 +1,39 @@
 import React from "react";
-
+import { Typography, Button, Card as MuiCard, CardContent } from "@mui/material";
 
 const Card = ({ name, username, id }) => {
+  const addFav = () => {
+    const cardData = {
+      id,
+      name,
+      username,
+    };
 
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+    // Lógica para guardar la tarjeta en localStorage
+    const existingFavs = localStorage.getItem("favorites");
+    let favorites = existingFavs ? JSON.parse(existingFavs) : [];
+    favorites.push(cardData);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  };
 
   return (
-    <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
-    </div>
+    <MuiCard>
+      <CardContent>
+        <Typography variant="h5" component="h3">
+          {name}
+        </Typography>
+        <Typography variant="body1" component="p">
+          {username}
+        </Typography>
+        <Typography variant="body2" component="p">
+          ID: {id}
+        </Typography>
+        {/* Agrega aquí el enlace hacia la página de detalle */}
+        <Button onClick={addFav} variant="contained" color="primary" className="favButton">
+          Add fav
+        </Button>
+      </CardContent>
+    </MuiCard>
   );
 };
 

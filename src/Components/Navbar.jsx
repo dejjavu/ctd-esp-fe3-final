@@ -1,20 +1,29 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 
 const Navbar = () => {
-
   return (
-    <nav>
- <h3>DH Odonto</h3>
- <Link to = "/"> Home </Link>
- <Link to = "/contact"> Contacto </Link>
- <Link to = "/favs"> Favoritos </Link>
- <button>Cambiar Tema</button>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          DH Odonto
+        </Typography>
+        <div className='menu' style={{ marginLeft: 'auto' }}>
+          <Link to="/" style={{ textDecoration: 'none', marginRight: '10px' }}>
+            <Button color="inherit">Home</Button>
+          </Link>
+          <Link to="/contact" style={{ textDecoration: 'none', marginRight: '10px' }}>
+            <Button color="inherit">Contacto</Button>
+          </Link>
+          <Link to="/favs" style={{ textDecoration: 'none', marginRight: '10px' }}>
+            <Button color="inherit">Favoritos</Button>
+          </Link>
+          <Button color="inherit">Cambiar Tema</Button>
+        </div>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-      </nav>
-  )
-}
-
-export default Navbar
+export default Navbar;
