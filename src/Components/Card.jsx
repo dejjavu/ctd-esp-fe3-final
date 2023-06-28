@@ -11,11 +11,19 @@ const Card = ({ name, username, id }) => {
       username,
     };
 
-    // Lógica para guardar la tarjeta en localStorage
     const existingFavs = localStorage.getItem('favorites');
     let favorites = existingFavs ? JSON.parse(existingFavs) : [];
-    favorites.push(cardData);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    
+    // Verificar si el objeto ya existe en la lista
+    const isAlreadyFavorite = favorites.some((favorite) => favorite.id === cardData.id);
+    
+    if (!isAlreadyFavorite) {
+      favorites.push(cardData);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    } else {
+      console.log('El objeto ya está en la lista de favoritos');
+    }
+    
   };
 
   const StyledLogo = styled('img')({
