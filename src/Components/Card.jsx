@@ -1,7 +1,8 @@
-import React, { useReducer, useEffect } from 'react';
-import { Card as MUICard, Typography, Button } from '@mui/material';
-import { styled } from '@mui/system';
+import React, { useReducer, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../Components/Cards.css'
+
+
 
 const initialState = {
   isFavorite: false,
@@ -55,30 +56,32 @@ const Card = ({ name, username, id }) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
-  const StyledLogo = styled('img')({
-    width: '200px',
-  });
+ 
+
+
+
 
   return (
-    <MUICard style={{ maxWidth: '200px' }}>
+   
+     <div className="cardContainer">
       <Link to={`/dentist/${id}`} className="link">
-        <StyledLogo src="./images/doctor.jpg" alt="DH-logo" />
-        <Typography variant="h4">{name}</Typography>
-        <Typography variant="h6">{username}</Typography>
+        <img src="./images/doctor.jpg" alt="DH-logo" width={'150px'}/>
+        <h4>{name}</h4>
+        <h5>{username}</h5>
       </Link>
-      <Button onClick={handleFavoriteToggle} variant="contained">
+      <p onClick={handleFavoriteToggle}>
         {state.isFavorite ? (
-          <span role="img" aria-label="star">
+          <span >
             ⭐️
           </span>
         ) : (
-          <span role="img" aria-label="star">
+          <span >
             ☆
           </span>
         )}
-        {state.isFavorite ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
-      </Button>
-    </MUICard>
+
+      </p>
+      </div>
   );
 };
 

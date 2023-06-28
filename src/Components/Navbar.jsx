@@ -1,33 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import './Navbar.css';
+
 import { useContextGlobal } from '../Components/utils/global.context';
 
 const Navbar = () => {
   const { handleToggleTheme } = useContextGlobal();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    handleToggleTheme();
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          DH Odonto
-        </Typography>
-        <div className='menu' style={{ marginLeft: 'auto' }}>
-          <Link to="/" style={{ textDecoration: 'none', marginRight: '10px' }}>
-            <Button color="inherit">Home</Button>
-          </Link>
-          <Link to="/contact" style={{ textDecoration: 'none', marginRight: '10px' }}>
-            <Button color="inherit">Contacto</Button>
-          </Link>
-          <Link to="/favs" style={{ textDecoration: 'none', marginRight: '10px' }}>
-            <Button color="inherit">Favoritos</Button>
-          </Link>
-          <Button color="inherit" onClick={handleToggleTheme}>
-            Cambiar Tema
-          </Button>
-        </div>
-      </Toolbar>
-    </AppBar>
+    <div className={`navContainer ${isDarkMode ? 'dark' : 'light'}`}>
+      <div className='logo'>
+        <h3>DH Odonto</h3>
+      </div>
+      <div className='botones'>
+        <Link to="/">
+          <p className={`p ${isDarkMode ? 'dark' : 'light'}`}>Home</p>
+        </Link>
+        <Link to="/contact">
+        <p className={`p ${isDarkMode ? 'dark' : 'light'}`}>Contacto</p>
+        </Link>
+        <Link to="/favs">
+        <p className={`p ${isDarkMode ? 'dark' : 'light'}`}>Favoritos</p>
+        </Link>
+        <p onClick={toggleTheme}>
+          {isDarkMode ? '☀️' : '🌑'}
+        </p>
+      </div>
+    </div>
   );
 };
 

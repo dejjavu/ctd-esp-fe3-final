@@ -1,0 +1,28 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+  margin-right: 20px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.footerLogo {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Ajusta el valor según la separación deseada */
+}
+
+.socialLinks img {
+  width: 30px;
+  height: 30px;
+}

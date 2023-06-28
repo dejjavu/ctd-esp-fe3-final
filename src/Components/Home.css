@@ -1,0 +1,33 @@
+.Home {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+  }
+  
+  .CardsContainer {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 40px; 
+    width: auto;
+     
+
+  }
+  
+  .Card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .CardsContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  

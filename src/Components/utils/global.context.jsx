@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Definir el estado inicial
 const initialState = {
-  theme: '',
+  theme: 'light',
   dentista: [],
 };
 
@@ -46,6 +46,8 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     document.body.className = state.theme;
   }, [state.theme]);
+
+  
 
   const handleToggleTheme = () => {
     dispatch({ type: 'toggleTheme' });
