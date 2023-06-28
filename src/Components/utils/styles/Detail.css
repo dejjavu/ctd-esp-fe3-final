@@ -1,0 +1,13 @@
+.detailsContainer {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: space-between;
+    margin-top: 50px;
+
+}
+
+.detailInfo{
+    margin-top: 50px;
+}

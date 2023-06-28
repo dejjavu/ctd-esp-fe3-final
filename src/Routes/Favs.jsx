@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
+import '../Components/utils/styles/Favs.css'
 
 const Favs = () => {
   const [favorites, setFavorites] = useState([]);
@@ -16,9 +17,9 @@ const Favs = () => {
   };
   
   return (
-    <>
+    <div className="favsContainer">
       <h1>Tus dentistas favoritos...</h1>
-      <div className="card-grid">
+<div className="cardsFavs">
         {favorites.length === 0 ? (
           <p>No existen favoritos.</p>
         ) : (
@@ -32,8 +33,8 @@ const Favs = () => {
             />
           ))
         )}
+              </div>
       </div>
-    </>
   );
 };
 

@@ -1,23 +1,20 @@
 import React from 'react';
 import Form from '../Components/Form';
-import { Typography, Grid } from '@mui/material';
+import '../Components/utils/styles/Contact.css'
+
 
 // Este componente deberá ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Contact = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <Typography variant="h4" component="h1" gutterBottom>
+    <div className='contactContainer'>
+      <h1>
         Necesitas comunicarte?
-      </Typography>
-      <Typography variant="body1" component="p" gutterBottom>
+      </h1>
+      <h5>
         Completá el formulario.
-      </Typography>
-      <Grid container justifyContent="center">
-        <Grid item xs={12} sm={6}>
+      </h5>
           <Form />
-        </Grid>
-      </Grid>
     </div>
   );
 };

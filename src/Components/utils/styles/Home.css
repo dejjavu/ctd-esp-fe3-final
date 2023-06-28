@@ -25,9 +25,5 @@
     padding: 10px;
   }
   
-  @media (max-width: 768px) {
-    .CardsContainer {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+
   

@@ -1,12 +1,12 @@
 import React from 'react';
-import '../Components/Footer.css'
+import '../Components/utils/styles/Footer.css'
 
 
 const Footer = () => {
   return (
     <div className='footerContainer'>
     <div className='footerLogo'>
-<p>Powered by <img src="./images/DH.png" alt="DH-logo" width='150px'/> </p>
+<img src="./images/DH.png" alt="DH-logo"/>
 </div>
 <div className='socialLinks'>
 <img src="./images/ico-facebook.png" alt="fb"/>

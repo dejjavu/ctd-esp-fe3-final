@@ -1,6 +1,6 @@
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useReducer, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import '../Components/Cards.css'
+import '../Components/utils/styles/Cards.css'
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import '../Components/utils/styles//Navbar.css';
 
 import { useContextGlobal } from '../Components/utils/global.context';
 

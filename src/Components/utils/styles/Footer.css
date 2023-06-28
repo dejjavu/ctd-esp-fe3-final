@@ -1,0 +1,16 @@
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.footerLogo img {
+    width: 300px;
+}
+
+.socialLinks img {
+    width: 35px;
+    height: 35px;
+    gap: 20px;
+}

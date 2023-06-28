@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Components/Card';
 import { useContextGlobal } from '../Components/utils/global.context';
-import '../Components/Home.css'
+import '../Components/utils/styles/Home.css'
 const Home = () => {
   const { state } = useContextGlobal();
 
