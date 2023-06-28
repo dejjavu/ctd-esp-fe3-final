@@ -1,5 +1,7 @@
-import React from "react";
-import { Typography, Button, Card as MuiCard, CardContent } from "@mui/material";
+import React from 'react';
+import { Card as MUICard, Typography, Button } from '@mui/material';
+import { styled } from '@mui/system';
+import { Link } from 'react-router-dom'
 
 const Card = ({ name, username, id }) => {
   const addFav = () => {
@@ -10,30 +12,33 @@ const Card = ({ name, username, id }) => {
     };
 
     // Lógica para guardar la tarjeta en localStorage
-    const existingFavs = localStorage.getItem("favorites");
+    const existingFavs = localStorage.getItem('favorites');
     let favorites = existingFavs ? JSON.parse(existingFavs) : [];
     favorites.push(cardData);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
+  const StyledLogo = styled('img')({
+    width: '200px',
+  });
+
   return (
-    <MuiCard>
-      <CardContent>
-        <Typography variant="h5" component="h3">
+    <MUICard style={{ maxWidth: '200px' }}>
+
+      <Link to={`/dentist/${id}`} className="link">
+
+        <StyledLogo src="./images/doctor.jpg" alt="DH-logo" />
+        <Typography variant="h4" >
           {name}
         </Typography>
-        <Typography variant="body1" component="p">
+        <Typography variant="h6" >
           {username}
         </Typography>
-        <Typography variant="body2" component="p">
-          ID: {id}
-        </Typography>
-        {/* Agrega aquí el enlace hacia la página de detalle */}
-        <Button onClick={addFav} variant="contained" color="primary" className="favButton">
-          Add fav
-        </Button>
-      </CardContent>
-    </MuiCard>
+      </Link>
+      <Button onClick={addFav} variant="contained">
+        Agregar a favoritos
+      </Button>
+    </MUICard>
   );
 };
 

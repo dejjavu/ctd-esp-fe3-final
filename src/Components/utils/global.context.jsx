@@ -1,12 +1,13 @@
-import axios from "axios";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import axios from 'axios';
 
+// Definir el estado inicial
+const initialState = {
+  theme: '',
+  dentista: [],
+};
 
-export const initialState = {theme: "", data: []}
-
-export const ContextGlobal = createContext(undefined);
-
-
+// Definir el reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case 'getDentista':
@@ -14,31 +15,47 @@ const reducer = (state, action) => {
         ...state,
         dentista: action.payload,
       };
+    case 'toggleTheme':
+      return {
+        ...state,
+        theme: state.theme === 'light' ? 'dark' : 'light',
+      };
     default:
       return state;
   }
 };
 
+// Crear el contexto
+const ContextGlobal = createContext();
 
-export const ContextProvider = ({ children }) => {
-  
-const [state, dispatch] = useReducer(reducer, initialState)
+// Hook personalizado para acceder al contexto
+const useContextGlobal = () => useContext(ContextGlobal);
 
-const urlApi = "https://jsonplaceholder.typicode.com/users"
+// Definir el proveedor del contexto
+const ContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-useEffect(() => {
-  axios.get(urlApi)
-    .then(resp => {
+  const urlApi = 'https://jsonplaceholder.typicode.com/users';
+
+  useEffect(() => {
+    axios.get(urlApi).then((resp) => {
       dispatch({ type: 'getDentista', payload: resp.data });
     });
-}, []);
+  }, []);
 
-console.log('Datos del dentista obtenidos:', state.dentista);
+  useEffect(() => {
+    document.body.className = state.theme;
+  }, [state.theme]);
+
+  const handleToggleTheme = () => {
+    dispatch({ type: 'toggleTheme' });
+  };
+
   return (
-    <ContextGlobal.Provider value={{state, dispatch}}>
+    <ContextGlobal.Provider value={{ state, dispatch, handleToggleTheme }}>
       {children}
     </ContextGlobal.Provider>
   );
 };
 
-export const useContextGlobal = () => useContext (ContextGlobal)
+export { ContextProvider, useContextGlobal };

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { useContextGlobal } from '../Components/utils/global.context';
 
 const Navbar = () => {
+  const { handleToggleTheme } = useContextGlobal();
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -19,7 +22,9 @@ const Navbar = () => {
           <Link to="/favs" style={{ textDecoration: 'none', marginRight: '10px' }}>
             <Button color="inherit">Favoritos</Button>
           </Link>
-          <Button color="inherit">Cambiar Tema</Button>
+          <Button color="inherit" onClick={handleToggleTheme}>
+            Cambiar Tema
+          </Button>
         </div>
       </Toolbar>
     </AppBar>

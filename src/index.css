@@ -1,5 +1,16 @@
-* {
+.body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Tema Oscuro */
+.dark {
+  background-color: #333333;
+  color: #ffffff;
 }
