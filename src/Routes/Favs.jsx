@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
 
 const Favs = () => {
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const [favorites, setFavorites] = useState([]);
 
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(storedFavorites);
+  }, [favorites]);
+
+  const handleFavoriteRemove = (id) => {
+    const updatedFavorites = favorites.filter((favorite) => favorite.id !== id);
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
+  
   return (
     <>
       <h1>Tus dentistas favoritos...</h1>
@@ -17,6 +28,7 @@ const Favs = () => {
               name={favorite.name}
               username={favorite.username}
               id={favorite.id}
+              onFavoriteRemove={handleFavoriteRemove}
             />
           ))
         )}

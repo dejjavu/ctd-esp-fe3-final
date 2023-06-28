@@ -4,15 +4,14 @@ import Home from "./Routes/Home";
 import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
 import Detail from "./Routes/Detail";
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { ContextProvider } from "./Components/utils/global.context";
+import {Routes, Route} from 'react-router-dom';
+
 
 function App() {
   return (
       <div className="App">
 
-          <BrowserRouter>
-          <ContextProvider>
+
           <Navbar/>
           <Routes>
             <Route path ="/" element={ <Home />}/>
@@ -21,8 +20,7 @@ function App() {
             <Route path ="/dentist/:id" element={ <Detail />}/>
           </Routes>
           <Footer/>
-          </ContextProvider>
-          </BrowserRouter>
+
 
       </div>
   );
