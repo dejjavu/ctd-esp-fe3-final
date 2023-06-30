@@ -13,9 +13,6 @@
 
 }
 
-p{
-  cursor: pointer;
-}
 .dark {
   background-color: #176B87;
   color: #ffffff;
@@ -33,10 +30,6 @@ p{
 
 
 
-
-span{
-  cursor: pointer
-}
 
 
 h1{

@@ -4,60 +4,39 @@
     justify-content: space-between;
     height: 75px;
     align-items: center;
-
-}
-
-
-
-
-.logo {
+  }
+  
+  .logo {
     margin-left: 200px;
     font-size: 25px;
     background-color: transparent;
-
-}
-
-.botones {
-    
+  }
+  
+  .botones {
     display: flex;
     width: 200px;
     margin-right: 200px;
     justify-content: space-around;
-}
-
-
-
-p{
+  }
+  
+  .p {
     margin-left: 16px;
     font-size: 20px;
-
-}
-
-.p {
     background-color: transparent;
   }
-
-
-
-a:active{
+  
+  .p a:visited {
     text-decoration: none;
-}
-
-p:visited{
+  }
+  
+  a:active,
+  p:active,
+  a:visited {
     text-decoration: none;
-}
-
-p:active{
-    text-decoration: none;
-}
-
-a:visited{
-    text-decoration: none;
-    ;
-}
-
-
-.themeButton {
+    
+  }
+  
+  .themeButton {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -67,6 +46,4 @@ a:visited{
     margin: 0;
     color: #333;
   }
-  
-
   
