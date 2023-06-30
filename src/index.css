@@ -4,8 +4,7 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   text-align: center;
-
-
+  
 }
 
 .light {
@@ -14,6 +13,9 @@
 
 }
 
+p{
+  cursor: pointer;
+}
 .dark {
   background-color: #176B87;
   color: #ffffff;
@@ -21,12 +23,12 @@
 
 .navContainer.dark {
   background-color: #001C30;
-  color: #fff;
+
 }
 
 .navContainer.light {
   background-color: #62A388;
-  color: #ffffff;
+
 }
 
 

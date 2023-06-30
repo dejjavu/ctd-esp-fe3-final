@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <div className={`navContainer ${themeClass}`}>
-      <div className='logo'>
+      <div className={`logo ${themeClass}`}>
         <h3>DH Odonto</h3>
       </div>
       <div className='botones'>

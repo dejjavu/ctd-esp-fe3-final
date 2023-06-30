@@ -6,66 +6,68 @@ import * as yup from "yup";
 import { Grid } from '@mui/material';
 
 const Form = () => {
-  const valoresIniciales = {
+  const initialValues = {
     nombre: "",
     email: "",
   };
 
   const [enviado, setEnviado] = useState(false);
 
-  const enviarForm = (data) => {
+  const enviarFormulario = (data) => {
     console.log(data);
     setEnviado(true);
   };
 
+  const validationSchema = yup.object({
+    nombre: yup
+      .string()
+      .matches(/^[a-zA-Z\s]{3,}$/, "El nombre debe tener al menos 3 caracteres y no debe contener símbolos")
+      .required("Debes ingresar un nombre"),
+    email: yup
+      .string()
+      .email("Ingresa un email válido")
+      .required("Debes ingresar un email"),
+  });
+
   const { handleSubmit, handleChange, values, errors } = useFormik({
-    validationSchema: yup.object({
-      nombre: yup
-        .string()
-        .matches(/^[a-zA-Z\s]{3,}$/, "El nombre debe tener al menos 3 caracteres y no debe contener símbolos")
-        .required("Debes ingresar un Nombre"),
-      email: yup
-        .string()
-        .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Ingresa un email válido")
-        .required("Debes ingresar un Email"),
-    }),
-    initialValues: valoresIniciales,
-    onSubmit: enviarForm,
+    initialValues,
+    validationSchema,
+    onSubmit: enviarFormulario,
   });
 
   return (
     <div>
       {enviado ? (
-        <p>Gracias {values.nombre} Nos pondremos en contacto a {values.email} a la brevedad.</p>
+        <p>Gracias {values.nombre}. Nos pondremos en contacto contigo a {values.email} a la brevedad.</p>
       ) : (
         <form className="form-container" onSubmit={handleSubmit}>
           <Grid container spacing={2} direction="column">
             <Grid item>
               <TextField
-                id="outlined-basic"
+                id="nombre"
                 name="nombre"
                 label="Nombre"
                 value={values.nombre}
-                variant="outlined"
+                variant="filled"
                 onChange={handleChange}
-                error={errors.nombre}
+                error={!!errors.nombre}
                 helperText={errors.nombre}
               />
             </Grid>
             <Grid item>
               <TextField
-                id="outlined-basic"
+                id="email"
                 name="email"
                 label="Email"
                 value={values.email}
-                variant="outlined"
+                variant="filled"
                 onChange={handleChange}
-                error={errors.email}
+                error={!!errors.email}
                 helperText={errors.email}
               />
             </Grid>
             <Grid item>
-              <Button type="submit" variant="contained">
+              <Button type="submit" variant="contained" color="primary">
                 Enviar
               </Button>
             </Grid>

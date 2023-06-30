@@ -15,15 +15,17 @@ const Detail = () => {
   }
 
   return (
-    
+
     <div>
-      <h1>Información del Dentista</h1>
-
+      <h1>Información adicional.</h1>
       <h2>{dentista.name}</h2>
-      <p> {dentista.email}</p>
-      <p>{dentista.phone}</p>
-      <p> {dentista.website}</p>
+      <br />
+      <img src="../images/doctor.jpg" alt="DH-logo" width={'150px'} />
 
+      <h4>ID: {dentista.id}</h4>
+      <h4>Usuario: {dentista.username}</h4>
+      <h4>Telefono: {dentista.phone}</h4>
+      <h4>Email: {dentista.email}</h4>
     </div>
   );
 };

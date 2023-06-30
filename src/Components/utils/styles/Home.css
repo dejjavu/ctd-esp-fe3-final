@@ -1,19 +1,19 @@
 /* Home.css */
 
 .homeRender {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 60%;
 
 
 
-  }
-  
+}
+
 .centrar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
 }

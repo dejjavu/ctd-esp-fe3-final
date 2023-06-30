@@ -2,8 +2,6 @@ import React, { useReducer, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import '../Components/utils/styles/Cards.css'
 
-
-
 const initialState = {
   isFavorite: false,
 };
@@ -56,6 +54,9 @@ const Card = ({ name, username, id }) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   };
 
+
+
+  
  
   return (
     <div className="cardContainer">

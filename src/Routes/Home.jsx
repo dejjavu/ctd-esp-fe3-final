@@ -9,7 +9,7 @@ const Home = () => {
 
 
 <div className='centrar'>
-<h1>Home</h1>
+<h1>Bienvenidos...</h1>
     <div className='homeRender'>
 
       {state.dentista.map((item) => (

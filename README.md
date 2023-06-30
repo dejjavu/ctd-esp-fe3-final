@@ -2,7 +2,11 @@
 
 IGNACIO POMA - MATIAS NAHUEL DE LUCA.
 
+## Dependencias Usadas:
 
+Formik + YUP
+ReactRouterDom
+AXIOS
 
 ## Indice
 
