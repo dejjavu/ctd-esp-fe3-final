@@ -1,16 +1,24 @@
 .footerContainer {
     display: flex;
     justify-content: space-between;
-    margin-left: 200px;
-    margin-right: 200px;
-}
+    align-items: center;
+    background-color: #64CCC5;
+    margin-top: 90px;
 
-.footerLogo img {
+  }
+  
+  .logo {
     width: 300px;
-}
-
-.socialLinks img {
+  }
+  
+  .socials {
     width: 35px;
     height: 35px;
-    gap: 20px;
-}
+    margin-right: 250px;
+  }
+  
+  .socials-container {
+    display: flex;
+    gap: 8px;
+  }
+  

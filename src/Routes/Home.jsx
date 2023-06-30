@@ -6,14 +6,18 @@ const Home = () => {
   const { state } = useContextGlobal();
 
   return (
-    <main className='Home'>
-      <h1>Nuestro equipo...</h1>
-<div className='CardsContainer' >
+
+
+<div className='centrar'>
+<h1>Home</h1>
+    <div className='homeRender'>
+
       {state.dentista.map((item) => (
         <Card key={item.id} id={item.id} name={item.name} username={item.username} />
       ))}
-      </div>
-    </main>
+    </div>
+    </div>
+
   );
 };
 

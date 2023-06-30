@@ -3,18 +3,41 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
+
+
 }
 
-/* Tema Claro */
 .light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #DAFFFB;
+  color: #001C30;
+
 }
 
-/* Tema Oscuro */
 .dark {
-  background-color: #333333;
+  background-color: #176B87;
+  color: #ffffff;
+}
+
+.navContainer.dark {
+  background-color: #001C30;
+  color: #fff;
+}
+
+.navContainer.light {
+  background-color: #62A388;
   color: #ffffff;
 }
 
 
+
+
+span{
+  cursor: pointer
+}
+
+
+h1{
+  margin-top: 25px;
+  margin-bottom: 80px;
+}

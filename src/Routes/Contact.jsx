@@ -14,7 +14,7 @@ const Contact = () => {
       <h5>
         Completá el formulario.
       </h5>
-          <Form />
+      <Form />
     </div>
   );
 };

@@ -57,31 +57,25 @@ const Card = ({ name, username, id }) => {
   };
 
  
-
-
-
-
   return (
-   
-     <div className="cardContainer">
+    <div className="cardContainer">
       <Link to={`/dentist/${id}`} className="link">
-        <img src="./images/doctor.jpg" alt="DH-logo" width={'150px'}/>
+        <img src="./images/doctor.jpg" alt="DH-logo" width={'150px'} />
         <h4>{name}</h4>
         <h5>{username}</h5>
       </Link>
       <p onClick={handleFavoriteToggle}>
         {state.isFavorite ? (
-          <span >
-            ⭐️
+          <span>
+            ❤️
           </span>
         ) : (
           <span >
-            ☆
+            🤍
           </span>
         )}
-
       </p>
-      </div>
+    </div>
   );
 };
 

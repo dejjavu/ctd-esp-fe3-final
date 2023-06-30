@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
-import '../Components/utils/styles/Favs.css'
+import '../Components/utils/styles/Home.css'
+
 
 const Favs = () => {
   const [favorites, setFavorites] = useState([]);
@@ -17,25 +18,27 @@ const Favs = () => {
   };
   
   return (
-    <div className="favsContainer">
+    <div className="centrar">
       <h1>Tus dentistas favoritos...</h1>
-<div className="cardsFavs">
+      <div className="homeRender">
         {favorites.length === 0 ? (
           <p>No existen favoritos.</p>
         ) : (
-          favorites.map((favorite) => (
+          favorites.map(({ id, name, username }) => (
             <Card
-              key={favorite.id}
-              name={favorite.name}
-              username={favorite.username}
-              id={favorite.id}
+              key={id}
+              name={name}
+              username={username}
+              id={id}
               onFavoriteRemove={handleFavoriteRemove}
             />
           ))
         )}
-              </div>
       </div>
+    </div>
   );
 };
 
 export default Favs;
+
+

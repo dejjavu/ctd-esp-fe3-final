@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { ContextGlobal } from '../Components/utils/global.context';
 import { Link } from 'react-router-dom';
-import '../Components/utils/styles//Navbar.css';
-
-import { useContextGlobal } from '../Components/utils/global.context';
+import '../Components/utils/styles/Navbar.css';
 
 const Navbar = () => {
-  const { handleToggleTheme } = useContextGlobal();
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    handleToggleTheme();
-    setIsDarkMode(!isDarkMode);
-  };
+  const { state, handleToggleTheme } = useContext(ContextGlobal);
+  const { theme } = state;
+  const isDarkMode = theme === 'dark';
+  const themeClass = isDarkMode ? 'dark' : 'light';
 
   return (
-    <div className={`navContainer ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className={`navContainer ${themeClass}`}>
       <div className='logo'>
         <h3>DH Odonto</h3>
       </div>
       <div className='botones'>
         <Link to="/">
-          <p className={`p ${isDarkMode ? 'dark' : 'light'}`}>Home</p>
+          <p className={`p ${themeClass}`}>Home</p>
         </Link>
         <Link to="/contact">
-        <p className={`p ${isDarkMode ? 'dark' : 'light'}`}>Contacto</p>
+          <p className={`p ${themeClass}`}>Contacto</p>
         </Link>
         <Link to="/favs">
-        <p className={`p ${isDarkMode ? 'dark' : 'light'}`}>Favoritos</p>
+          <p className={`p ${themeClass}`}>Favoritos</p>
         </Link>
-        <p onClick={toggleTheme}>
-          {isDarkMode ? '☀️' : '🌑'}
-        </p>
+        <button className={`themeButton ${themeClass}`} onClick={handleToggleTheme}>
+  {isDarkMode ? '☀️' : '🌚'}
+</button>
+
       </div>
     </div>
   );

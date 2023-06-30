@@ -2,8 +2,10 @@ import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
 
 // Definir el estado inicial
+const savedTheme = localStorage.getItem('theme');
+
 const initialState = {
-  theme: 'light',
+  theme: savedTheme || '',
   dentista: [],
 };
 
@@ -11,15 +13,11 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'getDentista':
-      return {
-        ...state,
-        dentista: action.payload,
-      };
+      return { ...state, dentista: action.payload };
     case 'toggleTheme':
-      return {
-        ...state,
-        theme: state.theme === 'light' ? 'dark' : 'light',
-      };
+      const newTheme = state.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      return { ...state, theme: newTheme };
     default:
       return state;
   }
@@ -47,8 +45,6 @@ const ContextProvider = ({ children }) => {
     document.body.className = state.theme;
   }, [state.theme]);
 
-  
-
   const handleToggleTheme = () => {
     dispatch({ type: 'toggleTheme' });
   };
@@ -60,4 +56,4 @@ const ContextProvider = ({ children }) => {
   );
 };
 
-export { ContextProvider, useContextGlobal };
+export { ContextProvider, useContextGlobal, ContextGlobal };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useContextGlobal } from '../Components/utils/global.context';
-import '../Components/utils/styles/Detail.css'
+
 
 const Detail = () => {
   const { state } = useContextGlobal();
@@ -15,14 +15,15 @@ const Detail = () => {
   }
 
   return (
-    <div className='detailsContainer'>
+    
+    <div>
       <h1>Información del Dentista</h1>
-      <div className='detailInfo'>
+
       <h2>{dentista.name}</h2>
       <p> {dentista.email}</p>
       <p>{dentista.phone}</p>
       <p> {dentista.website}</p>
-    </div>
+
     </div>
   );
 };
