@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import Card from "../Components/Card";
 import '../Components/utils/styles/Home.css'
 
-
 const Favs = () => {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
-  }, [favorites]);
+  }, []); 
 
   const handleFavoriteRemove = (id) => {
     const updatedFavorites = favorites.filter((favorite) => favorite.id !== id);
@@ -40,5 +39,3 @@ const Favs = () => {
 };
 
 export default Favs;
-
-
